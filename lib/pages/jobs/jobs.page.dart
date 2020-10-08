@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutterph/pages/home/home.page.dart';
+import 'package:flutterph/models/job.model.dart';
 
-class JobsPage extends StatefulWidget {
-  static const String routeName = "/jobs";
+class JobsPage extends StatelessWidget {
+  final List<Job> jobs;
+  final ValueChanged<Job> onTapped;
 
-  @override
-  State<StatefulWidget> createState() => _JobsPageState();
-}
+  JobsPage({
+    @required this.jobs,
+    @required this.onTapped,
+  });
 
-class _JobsPageState extends State<JobsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Text("Jobs"),
-            FlatButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  HomePage.routeName,
-                );
-              },
-              child: Text("Go to Home"),
-            ),
-          ],
-        ),
+      appBar: AppBar(),
+      body: ListView(
+        children: [
+          for (var job in jobs)
+            ListTile(
+              title: Text(job.id.toString()),
+              subtitle: Text(job.id.toString()),
+              onTap: () => onTapped(job),
+            )
+        ],
       ),
     );
   }

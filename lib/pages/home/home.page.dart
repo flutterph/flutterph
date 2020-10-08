@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterph/pages/jobs/jobs.page.dart';
 
 class HomePage extends StatefulWidget {
-  static const String routeName = "/home";
-
   @override
   State<StatefulWidget> createState() => _HomePageState();
 }
@@ -18,10 +15,10 @@ class _HomePageState extends State<HomePage> {
             Text("Home"),
             FlatButton(
               onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  JobsPage.routeName,
-                );
+                // Navigator.pushNamed(
+                //   context,
+                //   JobsPage.routeName,
+                // );
               },
               child: Text("Go to Jobs"),
             ),
